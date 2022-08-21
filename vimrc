@@ -1,4 +1,5 @@
 syntax on
+set nocompatible
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
@@ -7,18 +8,20 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 "    Plug 'tomasr/molokai'
-    Plug 'skielbasa/vim-material-monokai'
+"    Plug 'skielbasa/vim-material-monokai'
+    Plug 'joshdick/onedark.vim'
     Plug 'preservim/nerdtree'
+    Plug 'sheerun/vim-polyglot'
     " ...
 call plug#end()
     " The caveat is that you should *never* use PlugUpgrade
 delc PlugUpgrade
 set background=dark
 set termguicolors
-colorscheme material-monokai
+colorscheme onedark
 " Option for scheme material-monokai
-let g:materialmonokai_italic=1
-let g:materialmonokai_subtle_spell=1
+" let g:materialmonokai_italic=1
+" let g:materialmonokai_subtle_spell=1
 
 set showcmd		" Show (partial) command in status line.
 set number 
@@ -63,8 +66,8 @@ if !exists('g:airline_symbols')
 endif
 
 " Use modeline overrides
-" set modeline
-" set modelines=10
+set modeline
+set modelines=10
 
 set title
 set titleold="Terminal"
@@ -72,7 +75,8 @@ set titlestring=%F
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'materialmonokai'
+"let g:airline_theme = 'materialmonokai'
+let g:airline_theme = 'onedark'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
