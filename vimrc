@@ -7,8 +7,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-plug'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-"    Plug 'tomasr/molokai'
-"    Plug 'skielbasa/vim-material-monokai'
     Plug 'joshdick/onedark.vim'
     Plug 'preservim/nerdtree'
     Plug 'sheerun/vim-polyglot'
@@ -19,30 +17,39 @@ delc PlugUpgrade
 set background=dark
 set termguicolors
 colorscheme onedark
-" Option for scheme material-monokai
-" let g:materialmonokai_italic=1
-" let g:materialmonokai_subtle_spell=1
 
 set showcmd		" Show (partial) command in status line.
-set number 
+" set number
+" turn hybrid line numbers on
+set number relativenumber
+set nu rnu
+
+" turn hybrid line numbers off
+" set nonumber norelativenumber
+" set nonu nornu
+
+" toggle hybrid line numbers
+set number! relativenumber!
+set nu! rnu!
+set invnumber
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 set title " Show file name in bar
 set showmatch
-set autoread 
+set autoread
 set t_Co=256
 autocmd! bufwritepost $MYVIMRC source $MYVIMRC
-set scrolloff=3 
-set wrap 
-set linebreak 
-set hlsearch 
-set ruler  
-set ch=1 
-set laststatus=2 
+set scrolloff=3
+set wrap
+set linebreak
+set hlsearch
+set ruler
+set ch=1
+set laststatus=2
 set statusline=%f%m%r%h%w\ %y\ enc:%{&enc}\ %=\ col:%2c\ line:%2l/%L\ [%2p%%]
 set cursorline
-set wildmenu 
+set wildmenu
 filetype plugin indent on
 let g:airline_powerline_fonts=1
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 12
